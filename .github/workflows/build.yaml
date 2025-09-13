@@ -1,0 +1,29 @@
+name: Node Build Setup
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+
+      - name: Initialize package.json
+        run: npm init -y
+
+      - name: Add dummy build script
+        run: |
+          sed -i '/"scripts": {/a \    "build": "echo '\''No build step'\''",' package.json
+
+      - name: Run build
+        run: npm run build
