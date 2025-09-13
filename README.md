@@ -2,6 +2,10 @@
 
 This project utilizes GitHub Actions for continuous integration and deployment. The workflow is defined in the `build.yaml` file located in the `.github/workflows` directory.
 
+## Idea
+
+[a relative link](UseCase.md)
+
 ## Project Structure
 
 ```
