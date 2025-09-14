@@ -8,4 +8,11 @@ const server = http.createServer((req, res) => {
 
 server.listen(3000, () => {
   console.log('Server running on port 3000');
+
+  // Stop the server after 5 minutes
+  setTimeout(() => {
+    server.close(() => {
+      console.log('Server stopped after 2 minutes');
+    });
+  }, 2 * 60 * 1000); // 2 minutes in milliseconds
 });
